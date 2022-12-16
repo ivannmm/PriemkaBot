@@ -9,7 +9,7 @@ import java.io.File;
 
 public class Starter {
 
-    static FileManager fileManager;
+    public static FileManager fileManager;
 
     public static void main(String[] args) {
 
