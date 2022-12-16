@@ -93,7 +93,7 @@ public class CompetitiveListsAppeal {
     public enum AppealStage {
         CLOSED("Заявка принята в обработку", null),
         GET_COMMENT("Опишите проблему", CLOSED),
-        GET_SNILS("Введите СНИЛС абитуриента", GET_COMMENT),
+        GET_SNILS("Введите СНИЛС абитуриента, формат - *XXXXXXXXXXX*", GET_COMMENT),
         GET_NAME("Введите ФИО абитуриента", GET_SNILS);
 
         public final String message;
