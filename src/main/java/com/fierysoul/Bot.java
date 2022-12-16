@@ -1,5 +1,6 @@
 package com.fierysoul;
 
+import com.fierysoul.appeals.CompetitiveListsAppeal;
 import com.fierysoul.command.AutoAnswerCommand;
 import com.fierysoul.command.CreateAppealCommand;
 import com.fierysoul.command.NonCommand;
@@ -30,7 +31,7 @@ public final class Bot extends TelegramLongPollingCommandBot {
         }
 
         register(new CreateAppealCommand("appeal", "Appeal create", settings));
-        nonCommand = new NonCommand();
+        nonCommand = new NonCommand(this);
         new Thread(() -> {
             try {
                 Thread.sleep(1000 * 60);
@@ -93,6 +94,8 @@ public final class Bot extends TelegramLongPollingCommandBot {
     public boolean saveData() {
         try {
             Starter.fileManager.writeFile("botSettings", settings);
+            Starter.fileManager.writeFile("appeals", CompetitiveListsAppeal.ALL_CURRENT_COMPETITIVE_LISTS_APPEALS);
+            System.out.println("Saving data...");
             return true;
         } catch (Exception e) {
             e.printStackTrace();

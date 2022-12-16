@@ -7,6 +7,12 @@ import java.util.List;
 
 public class NonCommand {
 
+    Bot bot;
+
+    public NonCommand(Bot bot) {
+        this.bot = bot;
+    }
+
     public String nonCommandExecute(Long userId, Long chatId, String text) {
 
         if (text == null)
@@ -37,6 +43,11 @@ public class NonCommand {
                     }
 
                     appeal.changeState();
+
+                    if (appeal.isClosed()) {
+                        sendAppealToModerator(appeal);
+                    }
+
                     return appeal.getCurrentStage().message;
                 }
             }
@@ -71,6 +82,12 @@ public class NonCommand {
                 checkDigit = 0;
         }
         return checkDigit == Integer.parseInt(text.substring(9));
+    }
+
+    public void sendAppealToModerator(CompetitiveListsAppeal appeal) {
+        for (long moderId : bot.settings.moderators) {
+            Bot.sendMessage(bot, moderId, String.format("*Поступило новое обращение* \n%s", appeal.toString()));
+        }
     }
 
 }

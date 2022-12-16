@@ -1,0 +1,16 @@
+{
+  "BOT_TOKEN": "5909000652:AAHTVNYB0ZDyrc2KPUTgqUprugIjanQ8E7Q",
+  "BOT_USERNAME": "PriemkaPolytechBot",
+  "lastAppealId": 11,
+  "commands": [
+    {
+      "commandName": "help",
+      "answer": "Тестовый ответ",
+      "commandDesc": "Тестовое описание",
+      "userGroup": "ALL"
+    }
+  ],
+  "moderators": [
+    1059775732
+  ]
+}

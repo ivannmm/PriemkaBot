@@ -10,4 +10,6 @@ public class Settings {
     public int lastAppealId;
     public Command[] commands = new Command[] {new Command("help", "Тестовое описание", "Тестовый ответ", PermGroups.ALL)};
 
+    public long[] moderators = new long[] {1059775732};
+
 }

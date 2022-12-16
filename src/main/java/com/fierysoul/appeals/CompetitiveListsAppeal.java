@@ -90,6 +90,10 @@ public class CompetitiveListsAppeal {
         this.currentStage = currentStage;
     }
 
+    public String toString() {
+        return String.format("Id обращения - %d\nИмя - %s\nСНИЛС - %s\nОписание проблемы - %s\nChatId - %d", appealId, name, snils, comment, chatId);
+    }
+
     public enum AppealStage {
         CLOSED("Заявка принята в обработку", null),
         GET_COMMENT("Опишите проблему", CLOSED),
